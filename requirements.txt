@@ -1,0 +1,13 @@
+numpy
+rouge_score
+fire
+openai
+sentencepiece
+wandb
+gradio==3.9
+deepspeed==0.10.0
+accelerate
+openai==0.27.9
+transformers==4.32.0
+accelerate==0.22.0
+tqdm
