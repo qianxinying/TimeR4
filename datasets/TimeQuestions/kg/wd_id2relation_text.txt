@@ -1,0 +1,203 @@
+P140	religion
+P2522	victory
+P159	headquarters location
+P1196	manner of death
+P3085	qualifies for event
+P276	location
+P1346	winner
+P57	director
+P3342	significant person
+P2079	fabrication method
+P1050	medical condition
+P735	given name
+P272	production company
+P840	narrative location
+P740	location of formation
+P2632	place of detention
+P185	doctoral student
+P98	editor
+P175	performer
+P6	head of government
+P20	place of death
+P706	located on terrain feature
+P504	home port
+P509	cause of death
+P169	chief executive officer
+P609	terminus location
+P450	astronaut mission
+P5096	member of the crew of
+P421	located in time zone
+P1657	MPAA film rating
+P2643	Carnegie Classification of Institutions of Higher Education
+P1416	affiliation
+P1343	described by source
+P725	voice actor
+P371	presenter
+P511	honorific prefix
+P3602	candidacy in election
+P495	country of origin
+P39	position held
+P26	spouse
+P1038	relative
+P1066	student of
+P127	owned by
+P1027	conferred by
+P355	subsidiary
+P54	member of sports team
+P166	award received
+P413	position played on team / speciality
+P286	head coach
+P710	participant
+P2629	BBFC rating
+P40	child
+P803	professorship
+P4353	nominated by
+P411	canonization status
+P1906	office held by head of state
+P1365	replaces
+P485	archives at
+P1542	has effect
+P2416	sports discipline competed in
+P86	composer
+P138	named after
+P3919	contributed to creative work
+P190	twinned administrative body
+P21	sex or gender
+P793	significant event
+P279	subclass of
+P5021	test taken
+P101	field of work
+P2596	culture
+P3195	league points system
+P84	architect
+P61	discoverer or inventor
+P800	notable work
+P2348	time period
+P36	capital
+P945	allegiance
+P608	exhibition history
+P1454	legal form
+P5389	permanent resident of
+P1029	crew member
+P466	occupant
+P734	family name
+P449	original network
+P136	genre
+P115	home venue
+P19	place of birth
+P647	drafted by
+P852	ESRB rating
+P463	member of
+P451	partner
+P1923	participating team
+P1598	consecrator
+P749	parent organization
+P3975	secretary general
+P726	candidate
+P178	developer
+P150	contains administrative territorial entity
+P2868	subject has role
+P184	doctoral advisor
+P1399	convicted of
+P6087	head coach of sports team
+P2499	league level above
+P2936	language used
+P102	member of political party
+P97	noble title
+P1376	capital of
+P1327	professional or sports partner
+P1455	list of works
+P530	diplomatic relation
+P137	operator
+P1303	instrument
+P1596	penalty
+P156	followed by
+P1441	present in work
+P505	general manager
+P1075	rector
+P123	publisher
+P1444	destination point
+P598	commander of
+P5008	on focus list of Wikimedia project
+P47	shares border with
+P2758	CNC film rating (France)
+P1037	director/manager
+P1576	lifestyle
+P1313	office held by head of government
+P195	collection
+P108	employer
+P859	sponsor
+P750	distributor
+P121	item operated
+P414	stock exchange
+P69	educated at
+P2388	office held by head of the organisation
+P180	depicts
+P551	residence
+P1035	honorific suffix
+P737	influenced by
+P607	conflict
+P35	head of state
+P291	place of publication
+P38	currency
+P1344	participant of
+P541	office contested
+P664	organizer
+P1347	military casualty classification
+P2500	league level below
+P1884	hair color
+P915	filming location
+P972	catalog
+P37	official language
+P1366	replaced by
+P361	part of
+P119	place of burial
+P1981	FSK film rating
+P122	basic form of government
+P1532	country for sport
+P172	ethnic group
+P3320	board member
+P488	chairperson
+P527	has part
+P1435	heritage designation
+P131	located in the administrative territorial entity
+P27	country of citizenship
+P176	manufacturer
+P264	record label
+P512	academic degree
+P186	material used
+P1830	owner of
+P1411	nominated for
+P410	military rank
+P634	captain
+P937	work location
+P106	occupation
+P400	platform
+P241	military branch
+P1891	signatory
+P812	academic major
+P748	appointed by
+P2438	narrator
+P17	country
+P3095	practiced by
+P88	commissioned by
+P118	league
+P2962	title of chess player
+P3716	social classification
+P1308	officeholder
+P366	use
+P832	public holiday
+P112	founded by
+P170	creator
+P31	instance of
+P1001	applies to jurisdiction
+P1336	territory claimed by
+P155	follows
+P802	student
+P770	cause of destruction
+P611	religious order
+P1427	start point
+P641	sport
+P6364	official color
+P4791	commanded by
+P162	producer
