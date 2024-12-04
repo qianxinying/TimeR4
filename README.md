@@ -1,32 +1,37 @@
 # TimeR4
 > **Abstract**
-Temporal Knowledge Graph Question Answering (TKGQA) aims to answer temporal questions using knowledge in Temporal Knowledge Graphs (TKGs). Previous works employ pre-trained TKG embeddings or graph neural networks to incorporate the knowledge of TKGs. However, these methods fail to fully understand the complex semantic information of time constraints.
-In contrast, Large Language Models (LLMs) have shown exceptional performance in knowledge graph reasoning, unifying both semantic understanding and structural reasoning. To further enhance LLMs’ temporal reasoning ability, this paper aims to integrate temporal knowledge from TKGs into LLMs through a Time-aware Retrieve-Rewrite-Retrieve-Rerank framework, which we named TimeR4.
-Specifically, to reduce temporal hallucination in LLMs, we propose a retrieve-rewrite module to rewrite questions using background knowledge stored in the TKGs, thereby acquiring explicit time constraints. Then, we implement a retrieve-rerank module aimed at retrieving semantically and temporally relevant facts from the TKGs and reranking according to the temporal constraints.
-To achieve this, we fine-tune a retriever using the contrastive time-aware learning framework.
-Our approach achieves great improvements, with relative gains of 47.8\% and 22.5\% on two datasets, underscoring its effectiveness in boosting the temporal reasoning abilities of LLMs.
+> Temporal Knowledge Graph Question Answering (TKGQA) aims to answer temporal questions using knowledge in Temporal Knowledge Graphs (TKGs). Previous works employ pre-trained TKG embeddings or graph neural networks to incorporate the knowledge of TKGs. However, these methods fail to fully understand the complex semantic information of time constraints.
+> In contrast, Large Language Models (LLMs) have shown exceptional performance in knowledge graph reasoning, unifying both semantic understanding and structural reasoning. To further enhance LLMs’ temporal reasoning ability, this paper aims to integrate temporal knowledge from TKGs into LLMs through a Time-aware Retrieve-Rewrite-Retrieve-Rerank framework, which we named TimeR4.
+> Specifically, to reduce temporal hallucination in LLMs, we propose a retrieve-rewrite module to rewrite questions using background knowledge stored in the TKGs, thereby acquiring explicit time constraints. Then, we implement a retrieve-rerank module aimed at retrieving semantically and temporally relevant facts from the TKGs and reranking according to the temporal constraints.
+> To achieve this, we fine-tune a retriever using the contrastive time-aware learning framework.
+> Our approach achieves great improvements, with relative gains of 47.8\% and 22.5\% on two datasets, underscoring its effectiveness in boosting the temporal reasoning abilities of LLMs.
 
 Official Implementation of "$TimeR^4$: Time-aware Retrieval-Augmented Large Language Models for Temporal Knowledge Graph Question Answering".
 
 ## Requirements
+
 ```
 pip install -r requirements.txt
 ```
 
 ## Pre-trained weights
+
 You can download the pre-trained weights of retriever and LLMs [here.](https://pan.baidu.com/s/1VlOAOVsJAwes2azXEvq4yA?pwd=1234 ).
 
 ## Inference
+
 We run our code on 1 NVIDIA A6000 GPUs for inference and 2 NVIDIA A6000 GPUs for training.
+
 ### Step1: Retrieve-rewrite-retrieve-rerank
 
 ```bash
-python main.py --output_path  /home/qxy/timeR4/datasets/MultiTQ/results/test_prompt.json --question_path /home/qxy/timeR4/datasets/MultiTQ/questions/test.json --retrieve_name /home/qxy/method/multi_model --triplet_path /home/qxy/timeR4/datasets/MultiTQ/kg/full.txt
+python main.py --output_path  datasets/MultiTQ/results/test_prompt.json --question_path datasets/MultiTQ/questions/test.json --retrieve_name models/multi_model --triplet_path datasets/MultiTQ/kg/full.txt
 ```
 
 ### Step2: Reasoning
+
 ```bash
- CUDA_VISIBLE_DEVICES=6 python predict_answer.py  --model_path  /home/qxy/Llama-X/src/multi/checkpoint-1800  -d /home/qxy/timeR4/datasets/MultiTQ/prompt/test_prompt.json --debug --predict_path /home/qxy/timeR4/datasets/MultiTQ/result
+python predict_answer.py  --model_path  model/LLMs/Llama2_MultiTQ/checkpoint-1800  -d datasets/MultiTQ/prompt/test_prompt.json --debug --predict_path datasets/MultiTQ/result
 ```
 
 
@@ -38,22 +43,25 @@ python main.py --output_path  /home/qxy/timeR4/datasets/MultiTQ/results/test_pro
 1. Constructing negative samples.
 
 ```bash
-python construct_negatives.py --output_path  /home/qxy/timeR4/datasets/MultiTQ/negatives.json  --question_path /home/qxy/timeR4/datasets/MultiTQ/questions/train.json --datasets multi --entity2id_path /home/qxy/timeR4/datasets/MultiTQ/kg/entity2id.json --time2id_path /home/qxy/timeR4/datasets/MultiTQ/kg/ts2id.json --triplet_path /home/qxy/timeR4/datasets/MultiTQ/kg/full.txt --relation2id_path /home/qxy/timeR4/datasets/MultiTQ/kg/relation2id.json
+python construct_negatives.py --output_path  datasets/MultiTQ/negatives.json  --question_path datasets/MultiTQ/questions/train.json --datasets multi --entity2id_path datasets/MultiTQ/kg/entity2id.json --time2id_path datasets/MultiTQ/kg/ts2id.json --triplet_path datasets/MultiTQ/kg/full.txt --relation2id_path datasets/MultiTQ/kg/relation2id.json
 ```
 
 2. Fine-tune the LMs.
+
 ```bash
 python fine_tuned_retriever.py --path datasets/multi/negatives.json --model_name time_aware_model_tp
 ```
 
 
 ### Fine-tuning Llama2
+
 We use [Llama-X](https://github.com/AetherCortex/Llama-X) to fine tune llama2.
+
 ```
 deepspeed --master_port 25678 --include localhost:0,1 train.py \
     --model_name_or_path llama-7b-chat-hf  \
-    --data_path /home/qxy/multiqa/train_time_rog_wq.json \
-    --output_dir time_wq  \
+    --data_path dataset/MultiTQ/train_prompt.json \
+    --output_dir Llama2_MultiTQ  \
     --num_train_epochs 3 \
     --model_max_length 1024 \
     --per_device_train_batch_size 256 \
@@ -72,11 +80,15 @@ deepspeed --master_port 25678 --include localhost:0,1 train.py \
     --deepspeed configs/deepspeed_config.json \
     --bf16 True 
 ```
+
 ## Results
+
 We provide the results of ChatGPT, Llama2, and fine-tuned Llama2 for both the input question and the prompt generated by the  $TimeR^4$ framework in the `results` folder. Fine-tuned Llama2 is the results we report in the paper.
 
 ## Bibinfo
+
 If you found this repo helpful, please help us by citing this paper:
+
 ```
 @inproceedings{qian-etal-2024-timer4,
     title = "{T}ime{R}$^4$ : Time-aware Retrieval-Augmented Large Language Models for Temporal Knowledge Graph Question Answering",
