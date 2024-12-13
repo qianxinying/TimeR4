@@ -63,7 +63,7 @@ We use [Llama-X](https://github.com/AetherCortex/Llama-X) to fine tune llama2.
 ```
 deepspeed --master_port 25678 --include localhost:0,1 train.py \
     --model_name_or_path llama-7b-chat-hf  \
-    --data_path dataset/MultiTQ/train_prompt.json \
+    --data_path dataset/MultiTQ/prompt/train_prompt.json \
     --output_dir Llama2_MultiTQ  \
     --num_train_epochs 3 \
     --model_max_length 1024 \
@@ -80,7 +80,7 @@ deepspeed --master_port 25678 --include localhost:0,1 train.py \
     --lr_scheduler_type "cosine" \
     --report_to "tensorboard" \
     --gradient_checkpointing True \
-    --deepspeed configs/deepspeed_config.json \
+    --deepspeed deepspeed_config.json \
     --bf16 True 
 ```
 
