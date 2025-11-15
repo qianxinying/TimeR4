@@ -3,7 +3,10 @@
 > Temporal Knowledge Graph Question Answering (TKGQA) aims to answer temporal questions using knowledge in Temporal Knowledge Graphs (TKGs). Previous works employ pre-trained TKG embeddings or graph neural networks to incorporate the knowledge of TKGs. However, these methods fail to fully understand the complex semantic information of time constraints. In contrast, Large Language Models (LLMs) have shown exceptional performance in knowledge graph reasoning, unifying both semantic understanding and structural reasoning. To further enhance LLMs’ temporal reasoning ability, this paper aims to integrate temporal knowledge from TKGs into LLMs through a Time-aware Retrieve-Rewrite-Retrieve-Rerank framework, which we named TimeR4.
 > Specifically, to reduce temporal hallucination in LLMs, we propose a retrieve-rewrite module to rewrite questions using background knowledge stored in the TKGs, thereby acquiring explicit time constraints. Then, we implement a retrieve-rerank module aimed at retrieving semantically and temporally relevant facts from the TKGs and reranking according to the temporal constraints. To achieve this, we fine-tune a retriever using the contrastive time-aware learning framework. Our approach achieves great improvements, with relative gains of 47.8\% and 22.5\% on two datasets, underscoring its effectiveness in boosting the temporal reasoning abilities of LLMs.
 
-Official Implementation of ["TimeR4: Time-aware Retrieval-Augmented Large Language Models for Temporal Knowledge Graph Question Answering"](https://aclanthology.org/2024.emnlp-main.394/).
+Codes for ["TimeR4: Time-aware Retrieval-Augmented Large Language Models for Temporal Knowledge Graph Question Answering"](https://aclanthology.org/2024.emnlp-main.394/). 
+
+We have also made further extensions and improvements to this work, which are presented in ["Plan of Knowledge: Retrieval-Augmented Large Language Models for Temporal Knowledge Graph Question Answering"](https://arxiv.org/abs/2511.04072).
+
 ## Requirements
 
 ```
